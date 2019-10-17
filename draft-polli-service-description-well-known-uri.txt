@@ -1,0 +1,392 @@
+
+
+
+
+HTTP                                                            R. Polli
+Internet-Draft                         Team Digitale, Italian Government
+Intended status: Standards Track                        October 17, 2019
+Expires: April 19, 2020
+
+
+                Well-Known URIs for Service Description
+         draft-polli-service-description-well-known-uri-latest
+
+Abstract
+
+   Link Relation Types for Web Services have been introduced in RFC 8631
+   to provide documentation, descriptions, metadata, or status
+   information for these resources.  This specification registers the
+   corrisponding labels into the well-known URI IANA Registry.
+
+Note to Readers
+
+   _RFC EDITOR: please remove this section before publication_
+
+   Discussion of this draft takes place on the HTTP working group
+   mailing list (ietf-http-wg@w3.org), which is archived at
+   https://lists.w3.org/Archives/Public/ietf-http-wg/ [1].
+
+   The source code and issues list for this draft can be found at
+   https://github.com/ioggstream/draft-polli-service-description-well-
+   known-uri [2].
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on April 19, 2020.
+
+
+
+
+
+
+
+Polli                    Expires April 19, 2020                 [Page 1]
+
+Internet-Draft   Well-Known URIs for Service Description    October 2019
+
+
+Copyright Notice
+
+   Copyright (c) 2019 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents
+   (https://trustee.ietf.org/license-info) in effect on the date of
+   publication of this document.  Please review these documents
+   carefully, as they describe your rights and restrictions with respect
+   to this document.  Code Components extracted from this document must
+   include Simplified BSD License text as described in Section 4.e of
+   the Trust Legal Provisions and are provided without warranty as
+   described in the Simplified BSD License.
+
+Table of Contents
+
+   1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
+     1.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   3
+   2.  Well-Known URI for Web Services . . . . . . . . . . . . . . .   3
+   3.  Examples  . . . . . . . . . . . . . . . . . . . . . . . . . .   3
+     3.1.  Communicate API specification via well-known URI  . . . .   3
+     3.2.  Communicate API documentation via well-known URI  . . . .   3
+     3.3.  Communicate API status via well-known URI . . . . . . . .   4
+   4.  Security Considerations . . . . . . . . . . . . . . . . . . .   4
+     4.1.  Information exposure  . . . . . . . . . . . . . . . . . .   4
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   4
+     5.1.  service-desc Well-Known URI Registration  . . . . . . . .   4
+     5.2.  service-desc Well-Known URI Registration  . . . . . . . .   5
+     5.3.  service-meta Well-Known URI Registration  . . . . . . . .   5
+     5.4.  status Well-Known URI Registration  . . . . . . . . . . .   5
+   6.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   5
+     6.1.  Normative References  . . . . . . . . . . . . . . . . . .   5
+     6.2.  Informative References  . . . . . . . . . . . . . . . . .   6
+     6.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   6
+   Appendix A.  Acknowledgements . . . . . . . . . . . . . . . . . .   6
+   Change Log  . . . . . . . . . . . . . . . . . . . . . . . . . . .   6
+   FAQ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   6
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   6
+
+1.  Introduction
+
+   Link Relation Types for Web Services have been introduced in
+   [RFC8631] to provide documentation, descriptions, metadata, or status
+   information for these resources.
+
+   This specification adds the corrisponding entries in the well-known
+   URI IANA Registry.
+
+
+
+Polli                    Expires April 19, 2020                 [Page 2]
+
+Internet-Draft   Well-Known URIs for Service Description    October 2019
+
+
+1.1.  Notational Conventions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in BCP
+   14 ([RFC2119] and [RFC8174]) when, and only when, they appear in all
+   capitals, as shown here.
+
+   The terms "documentation" and "description" are to be interpreted as
+   described in Section 3 of [RFC8631].
+
+2.  Well-Known URI for Web Services
+
+   This specifications registers the following Well-Known URIs
+   associated to the Link Relations defined in [RFC8631].
+
+   Servers MAY use content negotiation (see Section 3.4 of [RFC7231]) to
+   provide different types of documentation or description.
+
+   Clients SHOULD NOT make any assumptions about the provided type of
+   documentation or description.
+
+3.  Examples
+
+3.1.  Communicate API specification via well-known URI
+
+   Request:
+
+     GET /.well-know/service-desc
+     Accept: application/vnd.oai.openapi;version=3.0.1
+
+
+   Response:
+
+     HTTP/1.1 200 Ok
+     Content-Type: application/vnd.oai.openapi;version=3.0.1
+
+     ...openapi specification...
+
+3.2.  Communicate API documentation via well-known URI
+
+   Request:
+
+     GET /.well-know/service-doc
+     Accept: text/html, application/pdf
+
+
+   Response:
+
+
+
+Polli                    Expires April 19, 2020                 [Page 3]
+
+Internet-Draft   Well-Known URIs for Service Description    October 2019
+
+
+     HTTP/1.1 200 Ok
+     Content-Type: text/html
+
+     ...html documentation...
+
+3.3.  Communicate API status via well-known URI
+
+   Request:
+
+     GET /.well-know/status
+
+
+   Response:
+
+  HTTP/1.1 503 Ok
+  Content-Type: application/problem+json
+  Retry-After: 3600
+
+  {
+    "status": 503,
+    "title": "Service Unavailable",
+    "detail": "Service is under maintenance. Check the Retry-After header."
+  }
+
+
+4.  Security Considerations
+
+4.1.  Information exposure
+
+   TODO
+
+5.  IANA Considerations
+
+   This specification defines a "well-known" URI using the registration
+   procedure and template from Section 5.1 of [RFC5785].
+
+5.1.  service-desc Well-Known URI Registration
+
+   IANA has added the following to the "Well-Known URIs" [RFC5785]
+   registry:
+
+   URI suffix: service-doc
+
+   Change controller: IETF.
+
+   Specification document(s): Section 6.1 of [RFC8631], this document
+
+   Related information: None.
+
+
+
+Polli                    Expires April 19, 2020                 [Page 4]
+
+Internet-Draft   Well-Known URIs for Service Description    October 2019
+
+
+5.2.  service-desc Well-Known URI Registration
+
+   IANA has added the following to the "Well-Known URIs" [RFC5785]
+   registry:
+
+   URI suffix: service-desc
+
+   Change controller: IETF.
+
+   Specification document(s): Section 6.2 of [RFC8631], this document
+
+   Related information: None.
+
+5.3.  service-meta Well-Known URI Registration
+
+   IANA has added the following to the "Well-Known URIs" [RFC5785]
+   registry:
+
+   URI suffix: service-meta
+
+   Change controller: IETF.
+
+   Specification document(s): Section 6.3 [RFC8631], this document
+
+   Related information: None.
+
+5.4.  status Well-Known URI Registration
+
+   IANA has added the following to the "Well-Known URIs" [RFC5785]
+   registry:
+
+   URI suffix: status
+
+   Change controller: IETF.
+
+   Specification document(s): Section 6.4 [RFC8631], this document
+
+   Related information: None.
+
+6.  References
+
+6.1.  Normative References
+
+   [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+
+
+
+Polli                    Expires April 19, 2020                 [Page 5]
+
+Internet-Draft   Well-Known URIs for Service Description    October 2019
+
+
+6.2.  Informative References
+
+   [OpenAPI]  "OpenAPI Specifications", n.d.,
+              <https://github.com/OAI/OpenAPI-Specification>.
+
+   [RFC5785]  Nottingham, M. and E. Hammer-Lahav, "Defining Well-Known
+              Uniform Resource Identifiers (URIs)", RFC 5785,
+              DOI 10.17487/RFC5785, April 2010,
+              <https://www.rfc-editor.org/info/rfc5785>.
+
+   [RFC7231]  Fielding, R., Ed. and J. Reschke, Ed., "Hypertext Transfer
+              Protocol (HTTP/1.1): Semantics and Content", RFC 7231,
+              DOI 10.17487/RFC7231, June 2014,
+              <https://www.rfc-editor.org/info/rfc7231>.
+
+   [RFC8174]  Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+   [RFC8631]  Wilde, E., "Link Relation Types for Web Services",
+              RFC 8631, DOI 10.17487/RFC8631, July 2019,
+              <https://www.rfc-editor.org/info/rfc8631>.
+
+6.3.  URIs
+
+   [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
+
+   [2] https://github.com/ioggstream/draft-polli-service-description-
+       well-known-uri
+
+Appendix A.  Acknowledgements
+
+   This work is based on Erik Wilde's work on service description
+   contained in [RFC8631].
+
+Change Log
+
+   RFC EDITOR PLEASE DELETE THIS SECTION.
+
+FAQ
+
+   RFC EDITOR PLEASE DELETE THIS SECTION.
+
+Author's Address
+
+
+
+
+
+
+
+Polli                    Expires April 19, 2020                 [Page 6]
+
+Internet-Draft   Well-Known URIs for Service Description    October 2019
+
+
+   Roberto Polli
+   Team Digitale, Italian Government
+
+   Email: robipolli@gmail.com
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Polli                    Expires April 19, 2020                 [Page 7]
