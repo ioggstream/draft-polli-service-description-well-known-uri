@@ -283,8 +283,7 @@ ul.toc li {
 
   <link href="#rfc.toc" rel="Contents">
 <link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
-<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Goals">
-<link href="#rfc.section.1.2" rel="Chapter" title="1.2 Notational Conventions">
+<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Notational Conventions">
 <link href="#rfc.section.2" rel="Chapter" title="2 Well-Known URI for Web Services">
 <link href="#rfc.section.3" rel="Chapter" title="3 Examples">
 <link href="#rfc.section.3.1" rel="Chapter" title="3.1 Communicate API specification via well-known URI">
@@ -368,9 +367,7 @@ ul.toc li {
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a>
 </li>
-<ul><li>1.1.   <a href="#rfc.section.1.1">Goals</a>
-</li>
-<li>1.2.   <a href="#rfc.section.1.2">Notational Conventions</a>
+<ul><li>1.1.   <a href="#rfc.section.1.1">Notational Conventions</a>
 </li>
 </ul><li>2.   <a href="#rfc.section.2">Well-Known URI for Web Services</a>
 </li>
@@ -417,18 +414,20 @@ ul.toc li {
   <h1 id="rfc.section.1">
 <a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
 </h1>
-<p id="rfc.section.1.p.1">Link Relation Types for Web Services have been introduced in <a href="#RFC8631" class="xref">[RFC8631]</a> to provide documentation, descriptions, metadata, or status information for these resources.</p>
-<p id="rfc.section.1.p.2">This specification adds the corrisponding entries in the well-known URI IANA Registry.</p>
+<p><a href="#RFC8631" class="xref">[RFC8631]</a> introduced the ability to provide documentation, descriptions, metadata, or status information for Web Services via Link Relations.</p>
+<p id="rfc.section.1.p.2">Making service metadata directly available under the &#8220;.well-known/&#8221; path (see Section 1.1 of <a href="#RFC5785" class="xref">[RFC5785]</a>) enables retrieving those informations without the need to process Link relations or send the following headers in every response.</p>
+<pre>
+Link: &lt;https://api.example.net/.well-known/service-desc&gt;; rel="service-desc"
+Link: &lt;https://api.example.net/.well-known/status&gt;; rel="status"; type="application/problem+json"
+</pre>
+<p id="rfc.section.1.p.3">For example a client could evaluate authentication or authorization policies defined in &#8220;service-desc&#8221; before trying to access the service.</p>
+<p id="rfc.section.1.p.4">Another example is getting the service &#8220;status&#8221; without looking for informations into Link relation response headers.</p>
+<p id="rfc.section.1.p.5">This specification adds the corrisponding entries in the well-known URI IANA Registry.</p>
 <h2 id="rfc.section.1.1">
-<a href="#rfc.section.1.1">1.1.</a> <a href="#goals" id="goals">Goals</a>
+<a href="#rfc.section.1.1">1.1.</a> <a href="#notational-conventions" id="notational-conventions">Notational Conventions</a>
 </h2>
-<p id="rfc.section.1.1.p.1">This specification makes service metadata directly available under the &#8220;.well-known/&#8221; path (see Section 1.1 of <a href="#RFC5785" class="xref">[RFC5785]</a>).</p>
-<p id="rfc.section.1.1.p.2">This is especially useful to enable the client evaluating authentication or authorization policies defined in &#8220;service-desc&#8221; before trying to access the service, or getting the service &#8220;status&#8221; without making previous requests to the service - which could be prevented by authentication or authorization policies.</p>
-<h2 id="rfc.section.1.2">
-<a href="#rfc.section.1.2">1.2.</a> <a href="#notational-conventions" id="notational-conventions">Notational Conventions</a>
-</h2>
-<p id="rfc.section.1.2.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;NOT RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in BCP 14 (<a href="#RFC2119" class="xref">[RFC2119]</a> and <a href="#RFC8174" class="xref">[RFC8174]</a>) when, and only when, they appear in all capitals, as shown here.</p>
-<p id="rfc.section.1.2.p.2">The terms &#8220;documentation&#8221; and &#8220;description&#8221; are to be interpreted as described in Section 3 of <a href="#RFC8631" class="xref">[RFC8631]</a>.</p>
+<p id="rfc.section.1.1.p.1">The key words &#8220;MUST&#8221;, &#8220;MUST NOT&#8221;, &#8220;REQUIRED&#8221;, &#8220;SHALL&#8221;, &#8220;SHALL NOT&#8221;, &#8220;SHOULD&#8221;, &#8220;SHOULD NOT&#8221;, &#8220;RECOMMENDED&#8221;, &#8220;NOT RECOMMENDED&#8221;, &#8220;MAY&#8221;, and &#8220;OPTIONAL&#8221; in this document are to be interpreted as described in BCP 14 (<a href="#RFC2119" class="xref">[RFC2119]</a> and <a href="#RFC8174" class="xref">[RFC8174]</a>) when, and only when, they appear in all capitals, as shown here.</p>
+<p id="rfc.section.1.1.p.2">The terms &#8220;documentation&#8221; and &#8220;description&#8221; are to be interpreted as described in Section 3 of <a href="#RFC8631" class="xref">[RFC8631]</a>.</p>
 <h1 id="rfc.section.2">
 <a href="#rfc.section.2">2.</a> <a href="#well-known-uri-for-web-services" id="well-known-uri-for-web-services">Well-Known URI for Web Services</a>
 </h1>
@@ -501,11 +500,11 @@ ul.toc li {
 <h1 id="rfc.section.5">
 <a href="#rfc.section.5">5.</a> <a href="#iana-considerations" id="iana-considerations">IANA Considerations</a>
 </h1>
-<p id="rfc.section.5.p.1">This specification defines a &#8220;well-known&#8221; URI using the registration procedure and template from Section 5.1 of <a href="#RFC5785" class="xref">[RFC5785]</a>.</p>
+<p id="rfc.section.5.p.1">This specification defines a &#8220;well-known&#8221; URI using the registration procedure and template from Section 5.1 of <a href="#RFC8615" class="xref">[RFC8615]</a>.</p>
 <h2 id="rfc.section.5.1">
 <a href="#rfc.section.5.1">5.1.</a> <a href="#service-doc-well-known-uri-registration" id="service-doc-well-known-uri-registration">service-doc Well-Known URI Registration</a>
 </h2>
-<p id="rfc.section.5.1.p.1">IANA has added the following to the &#8220;Well-Known URIs&#8221; <a href="#RFC5785" class="xref">[RFC5785]</a> registry:</p>
+<p id="rfc.section.5.1.p.1">IANA has added the following to the &#8220;Well-Known URIs&#8221; <a href="#RFC8615" class="xref">[RFC8615]</a> registry:</p>
 <p id="rfc.section.5.1.p.2">URI suffix:  service-doc</p>
 <p id="rfc.section.5.1.p.3">Change controller:  IETF.</p>
 <p id="rfc.section.5.1.p.4">Specification document(s): Section 6.1 of <a href="#RFC8631" class="xref">[RFC8631]</a>, this document</p>
@@ -513,7 +512,7 @@ ul.toc li {
 <h2 id="rfc.section.5.2">
 <a href="#rfc.section.5.2">5.2.</a> <a href="#service-desc-well-known-uri-registration" id="service-desc-well-known-uri-registration">service-desc Well-Known URI Registration</a>
 </h2>
-<p id="rfc.section.5.2.p.1">IANA has added the following to the &#8220;Well-Known URIs&#8221; <a href="#RFC5785" class="xref">[RFC5785]</a> registry:</p>
+<p id="rfc.section.5.2.p.1">IANA has added the following to the &#8220;Well-Known URIs&#8221; <a href="#RFC8615" class="xref">[RFC8615]</a> registry:</p>
 <p id="rfc.section.5.2.p.2">URI suffix:  service-desc</p>
 <p id="rfc.section.5.2.p.3">Change controller:  IETF.</p>
 <p id="rfc.section.5.2.p.4">Specification document(s): Section 6.2 of <a href="#RFC8631" class="xref">[RFC8631]</a>, this document</p>
@@ -521,7 +520,7 @@ ul.toc li {
 <h2 id="rfc.section.5.3">
 <a href="#rfc.section.5.3">5.3.</a> <a href="#service-meta-well-known-uri-registration" id="service-meta-well-known-uri-registration">service-meta Well-Known URI Registration</a>
 </h2>
-<p id="rfc.section.5.3.p.1">IANA has added the following to the &#8220;Well-Known URIs&#8221; <a href="#RFC5785" class="xref">[RFC5785]</a> registry:</p>
+<p id="rfc.section.5.3.p.1">IANA has added the following to the &#8220;Well-Known URIs&#8221; <a href="#RFC8615" class="xref">[RFC8615]</a> registry:</p>
 <p id="rfc.section.5.3.p.2">URI suffix:  service-meta</p>
 <p id="rfc.section.5.3.p.3">Change controller:  IETF.</p>
 <p id="rfc.section.5.3.p.4">Specification document(s): Section 6.3 <a href="#RFC8631" class="xref">[RFC8631]</a>, this document</p>
@@ -529,7 +528,7 @@ ul.toc li {
 <h2 id="rfc.section.5.4">
 <a href="#rfc.section.5.4">5.4.</a> <a href="#status-well-known-uri-registration" id="status-well-known-uri-registration">status Well-Known URI Registration</a>
 </h2>
-<p id="rfc.section.5.4.p.1">IANA has added the following to the &#8220;Well-Known URIs&#8221; <a href="#RFC5785" class="xref">[RFC5785]</a> registry:</p>
+<p id="rfc.section.5.4.p.1">IANA has added the following to the &#8220;Well-Known URIs&#8221; <a href="#RFC8615" class="xref">[RFC8615]</a> registry:</p>
 <p id="rfc.section.5.4.p.2">URI suffix:  status</p>
 <p id="rfc.section.5.4.p.3">Change controller:  IETF.</p>
 <p id="rfc.section.5.4.p.4">Specification document(s): Section 6.4 <a href="#RFC8631" class="xref">[RFC8631]</a>, this document</p>
@@ -564,6 +563,11 @@ ul.toc li {
 <td class="reference"><b id="RFC8174">[RFC8174]</b></td>
 <td class="top">
 <a>Leiba, B.</a>, "<a href="https://tools.ietf.org/html/rfc8174">Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</a>", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017.</td>
+</tr>
+<tr>
+<td class="reference"><b id="RFC8615">[RFC8615]</b></td>
+<td class="top">
+<a>Nottingham, M.</a>, "<a href="https://tools.ietf.org/html/rfc8615">Well-Known Uniform Resource Identifiers (URIs)</a>", RFC 8615, DOI 10.17487/RFC8615, May 2019.</td>
 </tr>
 <tr>
 <td class="reference"><b id="RFC8631">[RFC8631]</b></td>
