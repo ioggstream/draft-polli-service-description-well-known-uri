@@ -56,6 +56,20 @@ information for these resources.
 This specification adds the corrisponding entries in the well-known URI IANA
 Registry.
 
+## Goals
+
+This specification makes service metadata directly available
+under the ".well-known/" path (see Section 1.1 of {{?RFC5785}}).
+
+This is especially useful to enable 
+the client evaluating authentication or authorization policies
+defined in "service-desc" before trying to access the service,
+or 
+getting the service "status" without making previous requests
+to the service - which could be prevented by 
+authentication or authorization policies.
+   
+
 ## Notational Conventions
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this
@@ -159,7 +173,7 @@ This specification defines a "well-known" URI
    using the registration procedure and template from Section 5.1 of
    {{?RFC5785}}.
    
-## service-desc Well-Known URI Registration
+## service-doc Well-Known URI Registration
 
 IANA has added the following to the "Well-Known URIs" [RFC5785]
 registry:
