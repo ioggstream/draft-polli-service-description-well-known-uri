@@ -4,8 +4,8 @@
 
 HTTP                                                            R. Polli
 Internet-Draft                         Team Digitale, Italian Government
-Intended status: Standards Track                        October 17, 2019
-Expires: April 19, 2020
+Intended status: Standards Track                        October 23, 2019
+Expires: April 25, 2020
 
 
                 Well-Known URIs for Service Description
@@ -45,7 +45,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on April 19, 2020.
+   This Internet-Draft will expire on April 25, 2020.
 
 
 
@@ -53,7 +53,7 @@ Status of This Memo
 
 
 
-Polli                    Expires April 19, 2020                 [Page 1]
+Polli                    Expires April 25, 2020                 [Page 1]
 
 Internet-Draft   Well-Known URIs for Service Description    October 2019
 
@@ -76,27 +76,28 @@ Copyright Notice
 Table of Contents
 
    1.  Introduction  . . . . . . . . . . . . . . . . . . . . . . . .   2
-     1.1.  Notational Conventions  . . . . . . . . . . . . . . . . .   3
+     1.1.  Goals . . . . . . . . . . . . . . . . . . . . . . . . . .   3
+     1.2.  Notational Conventions  . . . . . . . . . . . . . . . . .   3
    2.  Well-Known URI for Web Services . . . . . . . . . . . . . . .   3
    3.  Examples  . . . . . . . . . . . . . . . . . . . . . . . . . .   3
      3.1.  Communicate API specification via well-known URI  . . . .   3
-     3.2.  Communicate API documentation via well-known URI  . . . .   3
+     3.2.  Communicate API documentation via well-known URI  . . . .   4
      3.3.  Communicate API status via well-known URI . . . . . . . .   4
    4.  Security Considerations . . . . . . . . . . . . . . . . . . .   4
      4.1.  Information exposure  . . . . . . . . . . . . . . . . . .   4
-   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   4
-     5.1.  service-desc Well-Known URI Registration  . . . . . . . .   4
+   5.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .   5
+     5.1.  service-doc Well-Known URI Registration . . . . . . . . .   5
      5.2.  service-desc Well-Known URI Registration  . . . . . . . .   5
      5.3.  service-meta Well-Known URI Registration  . . . . . . . .   5
-     5.4.  status Well-Known URI Registration  . . . . . . . . . . .   5
-   6.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   5
-     6.1.  Normative References  . . . . . . . . . . . . . . . . . .   5
+     5.4.  status Well-Known URI Registration  . . . . . . . . . . .   6
+   6.  References  . . . . . . . . . . . . . . . . . . . . . . . . .   6
+     6.1.  Normative References  . . . . . . . . . . . . . . . . . .   6
      6.2.  Informative References  . . . . . . . . . . . . . . . . .   6
-     6.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   6
-   Appendix A.  Acknowledgements . . . . . . . . . . . . . . . . . .   6
-   Change Log  . . . . . . . . . . . . . . . . . . . . . . . . . . .   6
-   FAQ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   6
-   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   6
+     6.3.  URIs  . . . . . . . . . . . . . . . . . . . . . . . . . .   7
+   Appendix A.  Acknowledgements . . . . . . . . . . . . . . . . . .   7
+   Change Log  . . . . . . . . . . . . . . . . . . . . . . . . . . .   7
+   FAQ . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   7
+   Author's Address  . . . . . . . . . . . . . . . . . . . . . . . .   7
 
 1.  Introduction
 
@@ -104,17 +105,30 @@ Table of Contents
    [RFC8631] to provide documentation, descriptions, metadata, or status
    information for these resources.
 
-   This specification adds the corrisponding entries in the well-known
-   URI IANA Registry.
 
 
 
-Polli                    Expires April 19, 2020                 [Page 2]
+
+Polli                    Expires April 25, 2020                 [Page 2]
 
 Internet-Draft   Well-Known URIs for Service Description    October 2019
 
 
-1.1.  Notational Conventions
+   This specification adds the corrisponding entries in the well-known
+   URI IANA Registry.
+
+1.1.  Goals
+
+   This specification makes service metadata directly available under
+   the ".well-known/" path (see Section 1.1 of [RFC5785]).
+
+   This is especially useful to enable the client evaluating
+   authentication or authorization policies defined in "service-desc"
+   before trying to access the service, or getting the service "status"
+   without making previous requests to the service - which could be
+   prevented by authentication or authorization policies.
+
+1.2.  Notational Conventions
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
@@ -148,6 +162,14 @@ Internet-Draft   Well-Known URIs for Service Description    October 2019
 
    Response:
 
+
+
+
+Polli                    Expires April 25, 2020                 [Page 3]
+
+Internet-Draft   Well-Known URIs for Service Description    October 2019
+
+
      HTTP/1.1 200 Ok
      Content-Type: application/vnd.oai.openapi;version=3.0.1
 
@@ -162,13 +184,6 @@ Internet-Draft   Well-Known URIs for Service Description    October 2019
 
 
    Response:
-
-
-
-Polli                    Expires April 19, 2020                 [Page 3]
-
-Internet-Draft   Well-Known URIs for Service Description    October 2019
-
 
      HTTP/1.1 200 Ok
      Content-Type: text/html
@@ -201,12 +216,22 @@ Internet-Draft   Well-Known URIs for Service Description    October 2019
 
    TODO
 
+
+
+
+
+
+Polli                    Expires April 25, 2020                 [Page 4]
+
+Internet-Draft   Well-Known URIs for Service Description    October 2019
+
+
 5.  IANA Considerations
 
    This specification defines a "well-known" URI using the registration
    procedure and template from Section 5.1 of [RFC5785].
 
-5.1.  service-desc Well-Known URI Registration
+5.1.  service-doc Well-Known URI Registration
 
    IANA has added the following to the "Well-Known URIs" [RFC5785]
    registry:
@@ -218,13 +243,6 @@ Internet-Draft   Well-Known URIs for Service Description    October 2019
    Specification document(s): Section 6.1 of [RFC8631], this document
 
    Related information: None.
-
-
-
-Polli                    Expires April 19, 2020                 [Page 4]
-
-Internet-Draft   Well-Known URIs for Service Description    October 2019
-
 
 5.2.  service-desc Well-Known URI Registration
 
@@ -252,6 +270,18 @@ Internet-Draft   Well-Known URIs for Service Description    October 2019
 
    Related information: None.
 
+
+
+
+
+
+
+
+Polli                    Expires April 25, 2020                 [Page 5]
+
+Internet-Draft   Well-Known URIs for Service Description    October 2019
+
+
 5.4.  status Well-Known URI Registration
 
    IANA has added the following to the "Well-Known URIs" [RFC5785]
@@ -273,14 +303,6 @@ Internet-Draft   Well-Known URIs for Service Description    October 2019
               Requirement Levels", BCP 14, RFC 2119,
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
-
-
-
-
-Polli                    Expires April 19, 2020                 [Page 5]
-
-Internet-Draft   Well-Known URIs for Service Description    October 2019
-
 
 6.2.  Informative References
 
@@ -305,6 +327,17 @@ Internet-Draft   Well-Known URIs for Service Description    October 2019
               RFC 8631, DOI 10.17487/RFC8631, July 2019,
               <https://www.rfc-editor.org/info/rfc8631>.
 
+
+
+
+
+
+
+Polli                    Expires April 25, 2020                 [Page 6]
+
+Internet-Draft   Well-Known URIs for Service Description    October 2019
+
+
 6.3.  URIs
 
    [1] https://lists.w3.org/Archives/Public/ietf-http-wg/
@@ -326,17 +359,6 @@ FAQ
    RFC EDITOR PLEASE DELETE THIS SECTION.
 
 Author's Address
-
-
-
-
-
-
-
-Polli                    Expires April 19, 2020                 [Page 6]
-
-Internet-Draft   Well-Known URIs for Service Description    October 2019
-
 
    Roberto Polli
    Team Digitale, Italian Government
@@ -367,26 +389,4 @@ Internet-Draft   Well-Known URIs for Service Description    October 2019
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Polli                    Expires April 19, 2020                 [Page 7]
+Polli                    Expires April 25, 2020                 [Page 7]
