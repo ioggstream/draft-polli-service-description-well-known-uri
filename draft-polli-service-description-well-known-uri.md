@@ -49,12 +49,31 @@ The source code and issues list for this draft can be found at
 
 # Introduction
 
-Link Relation Types for Web Services have been introduced in {{?RFC8631}}
+{{?RFC8631}} introduced the ability
 to provide documentation, descriptions, metadata, or status
-information for these resources.
+information for Web Services via Link Relations.
+
+Making service metadata directly available
+under the ".well-known/" path (see Section 1.1 of {{?RFC5785}})
+enables retrieving those informations
+without the need to process Link relations
+or send the following headers in every response.
+
+~~~
+Link: <https://api.example.net/.well-known/service-desc>; rel="service-desc"
+Link: <https://api.example.net/.well-known/status>; rel="status"; type="application/problem+json"
+~~~
+
+For example a client could
+evaluate authentication or authorization policies
+defined in "service-desc" before trying to access the service.
+
+Another example is getting the service "status"
+without looking for informations into Link relation response headers.
 
 This specification adds the corrisponding entries in the well-known URI IANA
 Registry.
+ 
 
 ## Notational Conventions
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
@@ -159,7 +178,7 @@ This specification defines a "well-known" URI
    using the registration procedure and template from Section 5.1 of
    {{?RFC8615}}.
    
-## service-desc Well-Known URI Registration
+## service-doc Well-Known URI Registration
 
 IANA has added the following to the "Well-Known URIs" [RFC8615]
 registry:
