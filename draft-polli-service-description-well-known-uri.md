@@ -157,11 +157,11 @@ TODO
 
 This specification defines a "well-known" URI
    using the registration procedure and template from Section 5.1 of
-   {{?RFC5785}}.
+   {{?RFC8615}}.
    
 ## service-desc Well-Known URI Registration
 
-IANA has added the following to the "Well-Known URIs" [RFC5785]
+IANA has added the following to the "Well-Known URIs" [RFC8615]
 registry:
 
    URI suffix:  service-doc
@@ -174,7 +174,7 @@ registry:
 
 ## service-desc Well-Known URI Registration
 
-IANA has added the following to the "Well-Known URIs" [RFC5785]
+IANA has added the following to the "Well-Known URIs" [RFC8615]
 registry:
 
    URI suffix:  service-desc
@@ -187,7 +187,7 @@ registry:
 
 ## service-meta Well-Known URI Registration
 
-IANA has added the following to the "Well-Known URIs" [RFC5785]
+IANA has added the following to the "Well-Known URIs" [RFC8615]
 registry:
 
    URI suffix:  service-meta
@@ -200,7 +200,7 @@ registry:
 
 ## status Well-Known URI Registration
 
-IANA has added the following to the "Well-Known URIs" [RFC5785]
+IANA has added the following to the "Well-Known URIs" [RFC8615]
 registry:
 
    URI suffix:  status
